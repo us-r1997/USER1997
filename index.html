@@ -4,20 +4,28 @@
     <meta charset="UTF-8">
     <title>내 소개 페이지</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 800px;
-            margin: 40px auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+    /* 배경사진 */
+    background-image: url("background.jpg");
+    background-size: cover;        /* 화면 꽉 채우기 */
+    background-position: center;   /* 중앙 정렬 */
+    background-repeat: no-repeat;
+    background-attachment: fixed;  /* 스크롤해도 고정 */
+}
+
+     .container {
+    width: 800px;
+    margin: 40px auto;
+    background-color: rgba(255, 255, 255, 0.9); /* 반투명 */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
         h1 {
             text-align: center;
         }
@@ -83,5 +91,6 @@
 
 </body>
 </html>
+
 
 
