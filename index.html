@@ -5,7 +5,7 @@
 <title>내 소개 페이지</title>
 
 <style>
-/* 🔤 TTF 폰트 등록 */
+/* ===== Font ===== */
 @font-face {
     font-family: "RetroFont";
     src: url("gaeul.ttf") format("truetype");
@@ -13,48 +13,49 @@
     font-style: normal;
 }
 
-/* 전체 기본 설정 */
+/* ===== Base ===== */
 body {
-    font-family: "RetroFont", Arial, sans-serif; /* 본문은 기본 폰트 */
     margin: 0;
     padding: 0;
+    font-family: "RetroFont", Arial, sans-serif;
 
-    background-image: url("background.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: url("background.jpg") center / cover no-repeat fixed;
 }
 
-/* 전체 패널 */
+/* ===== Layout ===== */
 .container {
     width: 800px;
     margin: 40px auto;
-    background-color: rgba(230, 210, 120, 0.9);
     padding: 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+
+    background-color: rgba(230, 210, 120, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* 제목 바 (TTF 적용됨) */
-h1, h2 {
-    font-family: "RetroFont", Arial, sans-serif;
-    letter-spacing: 1.2px;
-}
-
-/* 섹션 제목 바 */
-h2 {
-    margin: 0;
-    padding: 15px 30px;
-    border-bottom: 2px solid rgba(60, 60, 60, 0.6);
-    background-color: rgba(220, 200, 100, 0.9);
-}
-
-/* 내용 영역 */
 .section {
     padding: 25px 30px;
 }
 
-/* 프로필 */
+/* ===== Typography ===== */
+h1, h2 {
+    letter-spacing: 1.2px;
+}
+
+h2 {
+    margin: 0;
+    padding: 15px 30px;
+
+    background-color: rgba(220, 200, 100, 0.9);
+    border-bottom: 2px solid rgba(60, 60, 60, 0.6);
+}
+
+ul {
+    list-style: square;
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* ===== Profile ===== */
 .profile {
     text-align: center;
 }
@@ -64,10 +65,7 @@ h2 {
     border-radius: 50%;
 }
 
-ul {
-    list-style: square;
-}
-
+/* ===== Footer ===== */
 footer {
     text-align: center;
     color: #333;
@@ -122,5 +120,3 @@ footer {
 
 </body>
 </html>
-
-
