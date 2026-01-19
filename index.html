@@ -21,11 +21,11 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* ===== Section (모든 설명 란 공통) ===== */
+/* ===== Section (모든 설명 란 통일) ===== */
 .section {
     padding: 25px 30px;
     color: #ffffff;
-    background-color: rgba(15, 35, 110, 0.55); /* 통일된 파란 반투명 */
+    background-color: rgba(15, 35, 110, 0.55); /* 파란 반투명 */
 }
 
 /* ===== Headings ===== */
@@ -33,12 +33,17 @@ h1, h2 {
     letter-spacing: 1px;
 }
 
+/* 🟢 제목 바 : 녹색 그라데이션 (좌 → 우) */
 h2 {
     margin: 0;
     padding: 15px 30px;
-    background-color: rgba(220, 200, 100, 0.9);
-    border-bottom: 2px solid rgba(60, 60, 60, 0.6);
-    color: #000;
+    color: #ffffff;
+    background: linear-gradient(
+        to right,
+        rgba(20, 90, 40, 0.9),
+        rgba(80, 170, 110, 0.9)
+    );
+    border-bottom: 2px solid rgba(0, 0, 0, 0.4);
 }
 
 /* ===== Lists ===== */
@@ -65,7 +70,7 @@ a {
 }
 
 a:hover {
-    color: #ffe066;
+    color: #a8ffcc;
 }
 
 /* ===== Footer ===== */
