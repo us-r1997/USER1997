@@ -24,7 +24,7 @@ body {
 /* ===== 설명 란 ===== */
 .section {
     padding: 25px 30px;
-    background-color: rgba(85, 90, 95, 0.4); /* 더 진하지만 투명 */
+    background-color: rgba(85, 90, 95, 0.4);
     color: #ffffff;
 }
 
@@ -33,7 +33,7 @@ h1, h2 {
     letter-spacing: 0.6px;
 }
 
-/* ===== 제목 바 : 강한 XP 실버 그라데이션 ===== */
+/* ===== XP 실버 그라데이션 제목 바 ===== */
 h2 {
     margin: 0;
     padding: 15px 30px;
@@ -49,10 +49,8 @@ h2 {
 
     color: #000000;
 
-    /* XP 느낌 입체선 */
     border-top: 1px solid #ffffff;
     border-bottom: 2px solid #7a7f85;
-
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
 }
 
@@ -63,14 +61,20 @@ ul {
     padding-left: 20px;
 }
 
-/* ===== Profile ===== */
+/* ===== Profile (좌측 정렬) ===== */
 .profile {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
+/* 네모 프로필 사진 */
 .profile img {
     width: 150px;
-    border-radius: 50%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 0; /* 네모 */
+    border: 2px solid rgba(255,255,255,0.6);
 }
 
 /* ===== Links ===== */
