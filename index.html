@@ -20,15 +20,18 @@ body {
     margin: 40px auto;
     padding: 0;
 
-    background-color: rgba(230, 210, 120, 0.9);
+    background-color: rgba(230, 210, 120, 0.9); /* 바깥 패널 노랑 */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* ===== Section ===== */
 .section {
     padding: 25px 30px;
+    background-color: rgba(20, 30, 70, 0.75); /* 진한 반투명 남색 */
+    color: #ffffff; /* 문자 백색 */
 }
 
-/* ===== Typography ===== */
+/* ===== Headings ===== */
 h1, h2 {
     letter-spacing: 1px;
 }
@@ -37,10 +40,12 @@ h2 {
     margin: 0;
     padding: 15px 30px;
 
-    background-color: rgba(220, 200, 100, 0.9);
+    background-color: rgba(220, 200, 100, 0.9); /* 제목 바 노랑 */
     border-bottom: 2px solid rgba(60, 60, 60, 0.6);
+    color: #000;
 }
 
+/* ===== Lists ===== */
 ul {
     list-style: square;
     margin: 0;
@@ -57,10 +62,20 @@ ul {
     border-radius: 50%;
 }
 
+/* ===== Links ===== */
+a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #ffd84d;
+}
+
 /* ===== Footer ===== */
 footer {
     text-align: center;
-    color: #333;
+    color: #ffffff;
 }
 </style>
 </head>
