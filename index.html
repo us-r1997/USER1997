@@ -11,15 +11,15 @@ body {
     margin: 0;
     font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
     background: url("background.jpg") center / cover no-repeat fixed;
-    color: #000;
+    color: #fff;
 }
 
 /* ===== Boot Screen ===== */
 #bootScreen {
     position: fixed;
     inset: 0;
-    background: #000;
-    color: #fff;
+    background: #cfd3d7; /* XP 톤과 통일 */
+    color: #000;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,9 +32,10 @@ body {
 .boot-bar {
     width: 320px;
     height: 18px;
-    border: 1px solid #fff;
+    border: 1px solid #7a7f85;
     padding: 2px;
     margin-top: 10px;
+    background: #e6e6e6;
 }
 
 .boot-progress {
@@ -51,6 +52,7 @@ body {
     border: 2px solid #7a7f85;
     display: none;
     box-shadow: 0 6px 12px rgba(0,0,0,0.35);
+    font-size: 13px;
 }
 
 /* ===== Caption ===== */
@@ -105,6 +107,7 @@ body {
 .xp-content {
     padding: 20px 32px;
     background: #cfd3d7;
+    color: #000; /* 글자 통일 */
 }
 
 .xp-content.minimized {
@@ -132,11 +135,12 @@ body {
 .section {
     padding: 20px 28px;
     background-color: rgba(85, 90, 95, 0.45);
-    color: #ffffff;
+    color: #000; /* 본문 글자 색 통일 */
     margin-bottom: 0;
     border: 1px solid transparent;
     transition: background 0.15s, border 0.15s;
     font-size: 13px;
+    line-height: 1.4;
 }
 
 .section + .section {
@@ -145,7 +149,7 @@ body {
 
 .section:hover {
     background-color: rgba(105, 110, 115, 0.65);
-    border: 1px solid #ffffff;
+    border: 1px solid #7a7f85;
 }
 
 /* ===== XP Title ===== */
@@ -166,6 +170,7 @@ h2 {
     letter-spacing: 0.5px;
 }
 
+/* XP 아이콘 통일 */
 .xp-icon {
     display: inline-block;
     width: 14px;
@@ -179,7 +184,7 @@ ul {
     padding-left: 20px;
 }
 
-a { color: #ffffff; }
+a { color: #0a246a; font-weight: bold; }
 
 /* ===== Contact + Footer (분리된 hover 효과) ===== */
 .contact-section, .footer-note {
@@ -192,7 +197,7 @@ a { color: #ffffff; }
 
 .contact-section:hover, .footer-note:hover {
     background-color: rgba(105,110,115,0.65);
-    border: 1px solid #ffffff;
+    border: 1px solid #7a7f85;
 }
 
 /* ===== Status Bar ===== */
@@ -230,6 +235,7 @@ a { color: #ffffff; }
     justify-content: center;
     align-items: center;
     z-index: 10000;
+    font-weight: bold;
 }
 </style>
 </head>
