@@ -122,9 +122,13 @@ body {
     padding: 25px 30px;
     background-color: rgba(85, 90, 95, 0.45);
     color: #ffffff;
-    margin-bottom: 14px;
+    margin-bottom: 0; /* 붙어보이게 */
     border: 1px solid transparent;
     transition: background 0.15s, border 0.15s;
+}
+
+.section + .section {
+    margin-top: 0;
 }
 
 .section:hover {
@@ -164,23 +168,28 @@ ul {
 
 a { color: #ffffff; }
 
-/* ===== Contact + Footer Fusion ===== */
-.contact-wrap {
-    position: relative;
+/* ===== Contact Footer (분리되지만 붙어 보이게) ===== */
+.contact-section {
+    padding: 25px 30px;
+    background-color: rgba(85, 90, 95, 0.45);
+    margin: 0;
+    border: 1px solid transparent;
+    transition: background 0.15s, border 0.15s;
 }
 
 .footer-note {
-    margin-top: 2px;
+    padding: 6px 30px 10px;
     font-size: 11px;
-    opacity: 0.9;
-    transition: all 0.15s;
+    background-color: rgba(85, 90, 95, 0.45);
+    margin: 0;
+    border: 1px solid transparent;
+    transition: background 0.15s, border 0.15s;
 }
 
-.contact-wrap:hover .footer-note {
-    margin-top: 10px;
-    padding-top: 6px;
-    border-top: 1px solid rgba(255,255,255,0.6);
-    opacity: 1;
+/* Hover 효과로 구분 */
+.contact-section:hover, .footer-note:hover {
+    background-color: rgba(105, 110, 115, 0.65);
+    border: 1px solid #ffffff;
 }
 
 /* ===== Status Bar ===== */
@@ -273,12 +282,14 @@ a { color: #ffffff; }
         <div class="section"><ul><li>Blank</li></ul></div>
 
         <h2><span class="xp-icon">◆</span> Contact</h2>
-        <div class="section contact-wrap">
+        <div class="contact-section">
             <strong>Email:</strong> jhjch1207@icloud.com<br>
-            <strong>GitHub:</strong>
-            <a href="https://github.com/us-r1997">github.com/us-r1997</a><br>
+            <strong>GitHub:</strong> <a href="https://github.com/us-r1997">github.com/us-r1997</a><br>
             <strong>Discord:</strong> us_r1997
-            <div class="footer-note">© 2026 Made by USER1997</div>
+        </div>
+
+        <div class="footer-note">
+            © 2026 Made by USER1997
         </div>
 
     </div>
