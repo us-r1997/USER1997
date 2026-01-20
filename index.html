@@ -136,7 +136,7 @@ body {
 
 /* ===== Sections ===== */
 .section {
-    padding: 20px 28px;
+    padding: 18px 28px;
     background-color: rgba(85, 90, 95, 0.45);
     color: #000;
     margin-bottom: 12px;
@@ -150,6 +150,9 @@ body {
     background-color: rgba(105, 110, 115, 0.65);
     border: 1px solid #7a7f85;
 }
+
+/* Current Electronics 점 제거 */
+.no-bullets li { list-style: none; margin-bottom: 4px; }
 
 /* ===== XP Title with unified icon ===== */
 h2 {
@@ -171,7 +174,7 @@ h2 {
 }
 
 ul { list-style: none; padding-left: 0; }
-li::before { content: ""; } /* 점 제거 */
+li::before { content: ""; } 
 a { color: #0a246a; font-weight: bold; }
 
 /* ===== 강조된 곡 번호 ===== */
@@ -265,30 +268,28 @@ a { color: #0a246a; font-weight: bold; }
         <div class="section">Let's Remix Techno Club</div>
 
         <h2><span class="xp-icon">💠</span> Bio</h2>
-     <div class="section">
-    <ul>
-        <li><strong>Username:</strong> USER1997</li>
-        <li><strong>Interests:</strong> Electronics, 90s Korean techno music, handsome Korean boys</li>
-        <li><strong>Favorite brands:</strong> Xiaomi, Kumyoung, Microsoft</li>
-        <li><strong>Languages:</strong> Korean, English, Chinese</li>
-        <li><strong>Location:</strong> South Korea</li>
-        <li><strong>Favorite Singers:</strong> Kwon So-young, Yoo Chae-young, Yoo Seung-jun</li>
-    </ul>
-</div>
+        <div class="section">
+            <ul>
+                <li><strong>Username:</strong> USER1997</li>
+                <li><strong>Interests:</strong> Electronics, 90s Korean techno music, handsome Korean boys</li>
+                <li><strong>Favorite brands:</strong> Xiaomi, Kumyoung, Microsoft</li>
+                <li><strong>Languages:</strong> Korean, English, Chinese</li>
+                <li><strong>Location:</strong> South Korea</li>
+                <li><strong>Favorite Singers:</strong> Kwon So-young, Yoo Chae-young, Yoo Seung-jun</li>
+            </ul>
+        </div>
 
         <h2><span class="xp-icon">💠</span> Current Electronics</h2>
-<div class="section">
-    <li>Xiaomi Gaming Monitor G27i (Two monitors)</li>
-    <li>Xiaomi Desktop Speaker</li>
-    <li>Xiaomi Computer Monitor Light Bar</li>
-    <li>Xiaomi 12 Pro</li>
-    <li>Apple iPhone 16 Plus</li>
-    <li>Apple AirPods 4</li>
-    <li>Keychron K6 Pro</li>
-    <li>Razer DeathAdder V2 X HyperSpeed</li>
-        
-</div>
-
+        <div class="section no-bullets">
+            <li>Xiaomi Gaming Monitor G27i (Two monitors)</li>
+            <li>Xiaomi Desktop Speaker</li>
+            <li>Xiaomi Computer Monitor Light Bar</li>
+            <li>Xiaomi 12 Pro</li>
+            <li>Apple iPhone 16 Plus</li>
+            <li>Apple AirPods 4</li>
+            <li>Keychron K6 Pro</li>
+            <li>Razer DeathAdder V2 X HyperSpeed</li>
+        </div>
 
         <h2><span class="xp-icon">💠</span> Favorite Songs (Kumyoung)</h2>
         <div class="section">
@@ -394,7 +395,7 @@ refreshBtn.onclick=()=>{
 
     const origFilter = content.style.filter;
     content.style.filter="brightness(0.6)";
-    setTimeout(()=>{ content.style.filter=origFilter; },500); // 지속시간 500ms
+    setTimeout(()=>{ content.style.filter=origFilter; },500); 
 
     setTimeout(()=>{
         clearInterval(blink);
@@ -420,6 +421,3 @@ closeBtn.onclick=()=>{
 
 </body>
 </html>
-
-
-
