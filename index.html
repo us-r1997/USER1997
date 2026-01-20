@@ -5,7 +5,7 @@
 <title>My Profile</title>
 
 <style>
-/* ===== XP Font ===== */
+/* ===== Base ===== */
 html {
     -webkit-font-smoothing: none;
 }
@@ -16,10 +16,6 @@ body {
     font-size: 14px;
     background: url("background.jpg") center / cover no-repeat fixed;
     cursor: url("cursor.cur"), default;
-}
-
-a, button {
-    cursor: url("cursor-link.cur"), pointer;
 }
 
 /* ===== Splash ===== */
@@ -59,22 +55,26 @@ a, button {
 
 @keyframes load { to { width: 100%; } }
 
-/* ===== XP Window ===== */
+/* ===== XP WINDOW FRAME ===== */
 .xp-window {
-    width: 100%;
-    margin-top: 20px;
+    max-width: 900px;
+    margin: 40px auto;
+    background: #d9dde2;
+    border: 2px solid #7a7f85;
+    box-shadow:
+        inset 1px 1px 0 #ffffff,
+        inset -1px -1px 0 #a0a4a8,
+        0 8px 20px rgba(0,0,0,0.45);
 }
 
-/* ===== Topbar ===== */
+/* ===== Top Bar ===== */
 #topbar {
-    max-width: 800px;
-    width: 90%;
-    margin: 0 auto;
-    padding: 6px;
     display: flex;
+    align-items: center;
     gap: 6px;
-    border: 1px solid #7a7f85;
-    box-shadow: inset 0 1px 0 #fff;
+    padding: 6px;
+    border-bottom: 1px solid #7a7f85;
+    box-shadow: inset 0 1px 0 #ffffff;
     transition: background 0.2s;
 }
 
@@ -89,13 +89,13 @@ a, button {
 .top-btn {
     padding: 2px 8px;
     font-size: 12px;
-    background: linear-gradient(#fff, #c6cbd0);
+    background: linear-gradient(#ffffff, #c6cbd0);
     border: 1px solid #7a7f85;
 }
 
 .address-bar {
     flex: 1;
-    background: #fff;
+    background: #ffffff;
     border: 1px solid #7a7f85;
     padding: 3px 6px;
     font-size: 12px;
@@ -103,21 +103,14 @@ a, button {
     white-space: nowrap;
 }
 
-/* ===== Layout ===== */
-.xp-main {
-    display: flex;
-    justify-content: center;
+/* ===== Content Area ===== */
+.xp-content {
+    padding: 14px;
+    background: #cfd3d7;
 }
 
-/* SIDE UI toned down */
-.xp-side {
-    width: 48px;
-    background: #d9dde2;
-}
-
+/* Actual page */
 .container {
-    max-width: 800px;
-    width: 90%;
     background: rgba(210,215,220,0.95);
     box-shadow: 0 6px 15px rgba(0,0,0,0.35);
 }
@@ -126,7 +119,7 @@ a, button {
 .section {
     padding: 25px 30px;
     background: rgba(85,90,95,0.45);
-    color: #fff;
+    color: #ffffff;
 }
 
 .section:hover {
@@ -139,7 +132,7 @@ h2 {
     padding: 15px 30px;
     background: linear-gradient(
         to right,
-        #fff,
+        #ffffff,
         #e6e6e6,
         #c6cbd0,
         #dfe3e7
@@ -175,14 +168,11 @@ h2 {
     text-decoration: none;
 }
 
-/* ===== Status Bar (empty) ===== */
+/* ===== Status Bar ===== */
 .xp-status {
-    max-width: 800px;
     height: 18px;
-    margin: 0 auto;
     background: linear-gradient(#e6e6e6, #cfd3d7);
-    border: 1px solid #7a7f85;
-    border-top: none;
+    border-top: 1px solid #7a7f85;
 }
 
 /* ===== Footer ===== */
@@ -213,9 +203,7 @@ footer {
         <div class="address-bar" id="addressBar"></div>
     </div>
 
-    <div class="xp-main">
-        <div class="xp-side"></div>
-
+    <div class="xp-content">
         <div class="container">
 
             <div class="profile section">
@@ -252,34 +240,33 @@ footer {
             </footer>
 
         </div>
-
-        <div class="xp-side"></div>
     </div>
 
     <div class="xp-status"></div>
-
 </div>
 
 <script>
-document.getElementById("addressBar").textContent = location.href;
+/* address sync */
+addressBar.textContent = location.href;
 
+/* topbar focus */
 window.addEventListener("focus", () => {
     topbar.className = "active";
 });
-
 window.addEventListener("blur", () => {
     topbar.className = "inactive";
 });
 
+/* splash & counter */
 window.addEventListener("load", () => {
     setTimeout(() => splash.style.display = "none", 1500);
-
     let c = localStorage.getItem("visitCount") || 0;
     c++;
     localStorage.setItem("visitCount", c);
     count.textContent = String(c).padStart(4, "0");
 });
 
+/* click sound */
 document.addEventListener("click", () => {
     clickSound.currentTime = 0;
     clickSound.volume = 0.35;
