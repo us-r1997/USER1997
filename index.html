@@ -360,17 +360,14 @@ function startOnlineCounter(){
     },1000);
 }
 
-<!-- Visitor Counter -->
-<script>
+/* Visitor Counter using countapi.xyz */
 function updateVisitor(){
-    // countapi.xyz 키: user1997-profile / visitors
     fetch('https://api.countapi.xyz/hit/user1997-profile/visitors')
         .then(res => res.json())
         .then(data => {
             visitorCount.textContent = `Visitors: ${String(data.value).padStart(5,"0")}`;
         });
 }
-</script>
 
 /* Clock */
 setInterval(()=>{
@@ -388,7 +385,7 @@ maxBtn.onclick=()=>{
     if(minimized){ content.classList.remove("minimized"); minimized=false; }
 };
 
-/* Refresh with XP-like dark flash, 500ms duration */
+/* Refresh with XP-like dark flash */
 refreshBtn.onclick=()=>{
     statusText.textContent="Refreshing...";
     onlineStart = Date.now(); // reset counter
@@ -400,7 +397,7 @@ refreshBtn.onclick=()=>{
 
     const origFilter = content.style.filter;
     content.style.filter="brightness(0.6)";
-    setTimeout(()=>{ content.style.filter=origFilter; },500); 
+    setTimeout(()=>{ content.style.filter=origFilter; },500);
 
     setTimeout(()=>{
         clearInterval(blink);
@@ -426,6 +423,3 @@ closeBtn.onclick=()=>{
 
 </body>
 </html>
-
-
-
