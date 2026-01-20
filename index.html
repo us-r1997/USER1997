@@ -347,7 +347,7 @@ refreshBtn.onclick=()=>{
     // XP dark flash effect
     const origFilter = content.style.filter;
     content.style.filter="brightness(0.6)";
-    setTimeout(()=>{ content.style.filter=origFilter; },150);
+    setTimeout(()=>{ content.style.filter=origFilter; },400);
 
     setTimeout(()=>{
         clearInterval(blink);
@@ -373,3 +373,4 @@ closeBtn.onclick=()=>{
 
 </body>
 </html>
+
