@@ -11,6 +11,70 @@ body {
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     background: url("background.jpg") center / cover no-repeat fixed;
+    overflow-x: hidden;
+}
+
+/* ===== Techno Overlay ===== */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.015),
+            rgba(255,255,255,0.015) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+    animation: scan 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scan {
+    from { background-position: 0 0; }
+    to   { background-position: 0 200px; }
+}
+
+/* ===== XP Splash Screen ===== */
+#splash {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(#4a6fa5, #2e4f80);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    color: #ffffff;
+}
+
+.splash-box {
+    width: 320px;
+    padding: 25px;
+    background: #d4d7dc;
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    color: #000;
+    text-align: center;
+}
+
+.progress {
+    height: 14px;
+    margin-top: 15px;
+    background: #9aa3ad;
+    border: 1px solid #6b7076;
+}
+
+.progress span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to right, #ffffff, #4aa3ff);
+    animation: load 1.5s linear forwards;
+}
+
+@keyframes load {
+    to { width: 100%; }
 }
 
 /* ===== Layout ===== */
@@ -93,16 +157,6 @@ ul {
     text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
 }
 
-/* ===== Links ===== */
-a {
-    color: #ffffff;
-    text-decoration: underline;
-}
-
-a:hover {
-    color: #dddddd;
-}
-
 /* ===== XP Button ===== */
 .xp-button {
     display: inline-block;
@@ -119,23 +173,6 @@ a:hover {
     border-radius: 2px;
     text-decoration: none;
     font-size: 14px;
-    box-shadow:
-        inset 0 1px 0 #ffffff,
-        0 1px 0 rgba(0,0,0,0.25);
-}
-
-.xp-button:hover {
-    background: linear-gradient(
-        to bottom,
-        #ffffff 0%,
-        #e0e0e0 50%,
-        #c8ccd0 100%
-    );
-}
-
-.xp-button:active {
-    box-shadow:
-        inset 0 2px 4px rgba(0,0,0,0.35);
 }
 
 /* ===== Footer ===== */
@@ -147,6 +184,14 @@ footer {
 </head>
 
 <body>
+
+<!-- XP Splash -->
+<div id="splash">
+    <div class="splash-box">
+        <strong>Loading profile...</strong>
+        <div class="progress"><span></span></div>
+    </div>
+</div>
 
 <div class="container">
 
@@ -195,6 +240,14 @@ footer {
     </footer>
 
 </div>
+
+<script>
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.getElementById("splash").style.display = "none";
+    }, 1500);
+});
+</script>
 
 </body>
 </html>
