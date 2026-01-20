@@ -168,6 +168,25 @@ a {
     color: #000;
 }
 
+.status-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-led {
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(#3cff3c, #0f8a0f);
+    border: 1px solid #0a5a0a;
+}
+
+.status-right {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
 /* ===== Exit Screen ===== */
 #exitScreen {
     display: none;
@@ -193,7 +212,7 @@ a {
         <span>USER1997 - My Profile</span>
         <div class="caption-buttons">
             <div class="cap-btn" id="minBtn">_</div>
-            <div class="cap-btn">□</div>
+            <div class="cap-btn" id="maxBtn">□</div>
             <div class="cap-btn" id="closeBtn">×</div>
         </div>
     </div>
@@ -224,9 +243,7 @@ a {
             </div>
 
             <h2>💡 Bio</h2>
-            <div class="section">
-                어가나
-            </div>
+            <div class="section">어가나</div>
 
             <h2>📞 Contact</h2>
             <div class="section">
@@ -246,8 +263,14 @@ a {
     </div>
 
     <div class="xp-status">
-        <span id="statusText">Ready</span>
-        <span id="clock">00:00</span>
+        <div class="status-left">
+            <div class="status-led"></div>
+            <span id="statusText">Ready</span>
+        </div>
+        <div class="status-right">
+            <span id="sessionTime">00:00</span>
+            <span id="clock">00:00</span>
+        </div>
     </div>
 
 </div>
@@ -271,11 +294,21 @@ document.addEventListener("click", () => {
     }
 });
 
+/* Window state */
+let isMinimized = false;
+
 /* Minimize */
-let minimized = false;
 minBtn.onclick = () => {
-    minimized = !minimized;
-    content.classList.toggle("minimized", minimized);
+    if (isMinimized) return;
+    content.classList.add("minimized");
+    isMinimized = true;
+};
+
+/* Maximize */
+maxBtn.onclick = () => {
+    if (!isMinimized) return;
+    content.classList.remove("minimized");
+    isMinimized = false;
 };
 
 /* Close */
@@ -283,6 +316,15 @@ closeBtn.onclick = () => {
     xpWindow.style.display = "none";
     exitScreen.style.display = "flex";
 };
+
+/* Session time */
+let sec = 0;
+setInterval(() => {
+    sec++;
+    const m = String(Math.floor(sec / 60)).padStart(2, "0");
+    const s = String(sec % 60).padStart(2, "0");
+    sessionTime.textContent = m + ":" + s;
+}, 1000);
 
 /* Clock */
 function updateClock() {
