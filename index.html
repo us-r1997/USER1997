@@ -322,7 +322,6 @@ a { color: #0a246a; font-weight: bold; }
             <div class="status-led" id="led"></div>
             <span id="statusText">Ready</span>
             <span id="onlineTime"></span>
-            <span id="visitorCount"></span>
         </div>
         <span id="clock"></span>
     </div>
@@ -343,7 +342,6 @@ const boot=setInterval(()=>{
         bootScreen.style.display="none";
         xpWindow.style.display="block";
         startOnlineCounter();
-        updateVisitor();
     }
 },150);
 
@@ -358,16 +356,6 @@ function startOnlineCounter(){
         const sec=String(s%60).padStart(2,"0");
         onlineTime.textContent=`Online: ${m}:${sec}`;
     },1000);
-}
-
-/* Visitor Counter using countapi.xyz */
-function updateVisitor(){
-    fetch('https://api.countapi.xyz/hit/user1997-profile/visitors')
-        .then(res => res.json())
-        .then(data => {
-            visitorCount.textContent = `Visitors: ${String(data.value).padStart(5,"0")}`;
-        })
-        .catch(err => { visitorCount.textContent="Visitors: Error"; console.error(err); });
 }
 
 /* Clock */
@@ -404,7 +392,6 @@ refreshBtn.onclick=()=>{
         clearInterval(blink);
         led.style.opacity="1";
         statusText.textContent="Ready";
-        updateVisitor(); // 방문자 카운터 새로고침 시 업데이트
     },1200);
 };
 
