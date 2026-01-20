@@ -94,18 +94,12 @@ body {
 .xp-content {
     padding: 16px;
     background: #cfd3d7;
-    transition: opacity 0.3s ease, height 0.3s ease;
 }
 
 .xp-content.minimized {
     height: 0;
     padding: 0;
     overflow: hidden;
-    opacity: 0;
-}
-
-.xp-content.fade {
-    opacity: 0.3;
 }
 
 /* ===== Profile ===== */
@@ -129,11 +123,19 @@ body {
     background-color: rgba(85, 90, 95, 0.45);
     color: #ffffff;
     margin-bottom: 14px;
+    border: 1px solid transparent;
+    transition: background 0.15s, border 0.15s;
 }
 
+.section:hover {
+    background-color: rgba(105, 110, 115, 0.65);
+    border: 1px solid #ffffff;
+}
+
+/* ===== XP Title ===== */
 h2 {
     margin: 0;
-    padding: 15px 30px;
+    padding: 14px 30px;
     background: linear-gradient(
         to right,
         #ffffff 0%,
@@ -144,6 +146,15 @@ h2 {
     );
     color: #000;
     border-bottom: 2px solid #7a7f85;
+    font-size: 14px;
+}
+
+/* XP icon */
+.xp-icon {
+    display: inline-block;
+    width: 14px;
+    font-weight: bold;
+    color: #0a246a;
 }
 
 ul {
@@ -182,14 +193,13 @@ a { color: #ffffff; }
 #exitOverlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0);
+    background: rgba(0,0,0,0.6);
     color: #fff;
     font-size: 20px;
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 10000;
-    transition: background 1.2s ease;
 }
 </style>
 </head>
@@ -224,11 +234,11 @@ a { color: #ffffff; }
     <div class="xp-content" id="content">
 
         <div class="profile">
-            <img src="profile.jpg" alt="Profile photo">
+            <img src="profile.jpg">
             <h1>USER1997</h1>
         </div>
 
-        <h2>📌 Information</h2>
+        <h2><span class="xp-icon">■</span> Information</h2>
         <div class="section">
             <ul>
                 <li>Username: USER1997</li>
@@ -238,15 +248,13 @@ a { color: #ffffff; }
             </ul>
         </div>
 
-        <h2>💡 Bio</h2>
+        <h2><span class="xp-icon">●</span> Bio</h2>
         <div class="section">어가나</div>
 
-        <h2>🛠 Blank</h2>
-        <div class="section">
-            <ul><li>Blank</li></ul>
-        </div>
+        <h2><span class="xp-icon">▲</span> Blank</h2>
+        <div class="section"><ul><li>Blank</li></ul></div>
 
-        <h2>📞 Contact</h2>
+        <h2><span class="xp-icon">◆</span> Contact</h2>
         <div class="section">
             <strong>Email:</strong> jhjch1207@icloud.com<br>
             <strong>GitHub:</strong>
@@ -322,18 +330,14 @@ maxBtn.onclick=()=>{
 /* Refresh */
 refreshBtn.onclick=()=>{
     statusText.textContent="Refreshing...";
-    content.classList.add("fade");
-
     let on=true;
     const blink=setInterval(()=>{
         led.style.opacity=on?"0.2":"1";
         on=!on;
     },200);
-
     setTimeout(()=>{
         clearInterval(blink);
         led.style.opacity="1";
-        content.classList.remove("fade");
         statusText.textContent="Ready";
     },1000);
 };
@@ -345,8 +349,11 @@ closeBtn.onclick=()=>{
     exitOverlay.style.background="rgba(0,0,0,0.6)";
     setTimeout(()=>{
         exitOverlay.textContent="Shutting down...";
+    },1200);
+    setTimeout(()=>{
+        exitOverlay.textContent="";
         exitOverlay.style.background="#000";
-    },1500);
+    },2400);
 };
 </script>
 
