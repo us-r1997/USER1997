@@ -366,7 +366,8 @@ function updateVisitor(){
         .then(res => res.json())
         .then(data => {
             visitorCount.textContent = `Visitors: ${String(data.value).padStart(5,"0")}`;
-        });
+        })
+        .catch(err => { visitorCount.textContent="Visitors: Error"; console.error(err); });
 }
 
 /* Clock */
@@ -385,7 +386,7 @@ maxBtn.onclick=()=>{
     if(minimized){ content.classList.remove("minimized"); minimized=false; }
 };
 
-/* Refresh with XP-like dark flash */
+/* Refresh with XP-like dark flash, 500ms duration */
 refreshBtn.onclick=()=>{
     statusText.textContent="Refreshing...";
     onlineStart = Date.now(); // reset counter
@@ -397,12 +398,13 @@ refreshBtn.onclick=()=>{
 
     const origFilter = content.style.filter;
     content.style.filter="brightness(0.6)";
-    setTimeout(()=>{ content.style.filter=origFilter; },500);
+    setTimeout(()=>{ content.style.filter=origFilter; },500); 
 
     setTimeout(()=>{
         clearInterval(blink);
         led.style.opacity="1";
         statusText.textContent="Ready";
+        updateVisitor(); // 방문자 카운터 새로고침 시 업데이트
     },1200);
 };
 
